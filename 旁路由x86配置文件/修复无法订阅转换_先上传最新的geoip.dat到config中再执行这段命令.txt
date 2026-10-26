@@ -1,0 +1,4 @@
+cp /etc/openclash/config/geoip.dat /etc/openclash/GeoIP.dat
+cp /etc/openclash/config/geoip.dat /etc/openclash/geoip.dat
+chmod 644 /etc/openclash/GeoIP.dat /etc/openclash/geoip.dat
+rm -f /etc/openclash/config/geoip.dat

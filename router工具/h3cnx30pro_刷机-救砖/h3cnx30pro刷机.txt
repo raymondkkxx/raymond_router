@@ -1,0 +1,23 @@
+1.开启ssh：路由器需联网，使用putty连接路由器ip 192.168.124.1 端口号99,连接类型选择Telnet, 用户名H3C,密码是路由器后台登录密码，运行以下命令开启ssh 
+
+curl -o /tmp/dropbear.ipk https://downloads.openwrt.org/releases/packages-19.07/aarch64_cortex-a53/base/dropbear_2019.78-2_aarch64_cortex-a53.ipk
+opkg install /tmp/dropbear.ipk 
+/etc/init.d/dropbear enable
+/etc/init.d/dropbear start
+
+2.备份系统：运行以下命令，将原厂固件备份到  tmp 路径下,备份的大小大概是60多M
+
+dd if=/dev/mtd5 of=/tmp/backup.img
+
+使用winscp连接路由器ip 192.168.124.1 端口号22,用户名H3C,密码是路由器后台登录密码，将tmp 路径下的 backup.img 文件保存备份即可。
+
+
+3.刷写 uboot：使用winscp连接路由器ip 192.168.124.1 端口号22,用户名H3C,密码是路由器后台登录密码，用winscp将uboot.bin传到路由器的tmp目录,运行以下命令刷入uboot
+
+mtd write /tmp/uboot.bin FIP
+
+
+4.刷写openwrt固件：路由器断电，按住路由器背后的reset按钮不放同时插入电源，10s后松开reset。电脑有线连接路由器任意lan口，并设置电脑固定ip 192.168.1.2 子网掩码255.255.255.0 网关192.168.1.1首选DNS192.168.1.1，浏览器输入192.168.1.1 即可进入uboot刷机界面，刷机界面选择固件，点击upload 等待刷入完成后点击update，路由器会自动重启，记得改回电脑ip为自动获取。
+
+
+*固件后台地址192.168.6.1，账户root 密码password

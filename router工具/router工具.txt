@@ -1,0 +1,8 @@
+1. WePE工具箱
+2.  Xshell
+3. IMG写盘工具
+4. rufus写盘工具
+5. ventoy启动盘制作
+6. tftpd 刷机
+7. putty远程ssh
+8. winscp远程控制linux文件资源管理器

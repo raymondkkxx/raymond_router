@@ -1,0 +1,1 @@
+在订阅的网站上自动导入到clash verge 或clash party上, 读取他的yaml配置文件, 复制到新的yaml文件上, 直接上传旁路由上的openclash上, 然后在config manager上点击Switch切换配置, 让配置成功启用. 如果无法使用, 上传最新的geoip.dat到指定目录.
